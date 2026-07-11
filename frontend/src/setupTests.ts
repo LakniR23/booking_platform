@@ -1,0 +1,10 @@
+import '@testing-library/jest-dom';
+import { TextEncoder, TextDecoder } from 'util';
+
+if (typeof global.TextEncoder === 'undefined') {
+  global.TextEncoder = TextEncoder;
+}
+if (typeof global.TextDecoder === 'undefined') {
+  // @ts-expect-error - TextDecoder is assigned for jsdom test environment
+  global.TextDecoder = TextDecoder;
+}

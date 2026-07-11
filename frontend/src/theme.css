@@ -1,0 +1,96 @@
+/* ================================================================== */
+/*  GLOBAL THEME                                                        */
+/*  Single source of truth for colors used across the whole app.       */
+/*  Change any value here and it updates every component that uses      */
+/*  the shared design primitives (.card, .field, .btn, .pill, etc.)    */
+/*  and the CSS variables below.                                        */
+/* ================================================================== */
+
+:root {
+  /* -------- Brand -------- */
+  /* Palette tuned to match the teal navbar */
+  --color-brand-navy: #115E59;        /* deep teal — solid buttons, active filters */
+  --color-brand-navy-hover: #0F766E;  /* teal-700 */
+  --color-brand-indigo: #0D9488;      /* teal-600 — links, accents, gradient start */
+  --color-brand-cyan: #06B6D4;        /* cyan-500 — gradient end */
+
+  /* Accent gradient (buttons, strips, badges) */
+  --gradient-accent: linear-gradient(135deg, var(--color-brand-indigo), var(--color-brand-cyan));
+  --gradient-accent-h: linear-gradient(to right, var(--color-brand-indigo), var(--color-brand-cyan));
+
+  /* -------- Surfaces / backgrounds -------- */
+  --color-bg: #F1F5F9;          /* page background */
+  --color-surface: #FFFFFF;      /* cards, inputs */
+  --color-surface-muted: #F8FAFC;/* subtle fills */
+  --color-glass: rgba(255, 255, 255, 0.7);
+
+  /* Page background glows */
+  --glow-cyan: rgba(6, 182, 212, 0.10);
+  --glow-indigo: rgba(13, 148, 136, 0.12);   /* teal-tinted */
+
+  /* Decorative app-shell blur glows (App.tsx) */
+  --app-glow-1: rgba(20, 184, 166, 0.20);   /* top-left — teal */
+  --app-glow-2: rgba(6, 182, 212, 0.18);    /* bottom-right — cyan */
+
+  /* -------- Navbar -------- */
+  --color-navbar-bg: #0D9488;    /* teal-600 */
+  --color-navbar-fg: #FFFFFF;
+  --color-navbar-accent: #000000;/* the "Reserve" word */
+
+  /* -------- Footer -------- */
+  --color-footer-bg: #134E4A;    /* teal-900, deeper than the navbar */
+
+  /* -------- Text -------- */
+  --color-text: #0F172A;         /* base text */
+  --color-heading: #134E4A;      /* headings — deep teal */
+  --color-text-muted: #334155;
+  --color-text-subtle: #64748B;
+  --color-text-faint: #94A3B8;
+  --color-text-input: #1E293B;
+  --color-placeholder: #94A3B8;
+
+  /* -------- Borders / dividers -------- */
+  --color-border: #E6EAF1;
+  --color-border-strong: #D8DEE9;
+  --color-border-soft: #E2E8F0;
+  --color-divider: #F1F5F9;      /* light divider lines */
+  --color-glass-border: rgba(15, 23, 42, 0.06);
+
+  /* -------- Focus -------- */
+  --color-focus-ring: #14B8A6;
+  --shadow-focus: 0 0 0 3px rgba(20, 184, 166, 0.15);
+
+  /* -------- Shadows -------- */
+  --shadow-card: 0 4px 24px rgba(10, 22, 40, 0.06);
+  --shadow-card-lg: 0 4px 24px rgba(10, 22, 40, 0.07);
+  --shadow-glass: 0 2px 16px rgba(10, 22, 40, 0.05);
+  --shadow-btn-navy: 0 8px 20px rgba(10, 22, 40, 0.18);
+  --shadow-btn-navy-h: 0 12px 26px rgba(10, 22, 40, 0.24);
+  --shadow-btn-accent: 0 8px 20px rgba(13, 148, 136, 0.28);
+  --shadow-btn-accent-h: 0 12px 26px rgba(13, 148, 136, 0.34);
+
+  /* -------- Status pills -------- */
+  --pill-amber-bg: #FEF3C7;   --pill-amber-fg: #B45309;
+  --pill-emerald-bg: #D1FAE5; --pill-emerald-fg: #047857;
+  --pill-indigo-bg: #E0E7FF;  --pill-indigo-fg: #4338CA;
+  --pill-rose-bg: #FFE4E6;    --pill-rose-fg: #BE123C;
+
+  /* -------- Feedback / states -------- */
+  --color-error-bg: #FFF1F2;
+  --color-error-border: #FECDD3;
+  --color-error-fg: #BE123C;
+  --color-success-fg: #047857;
+
+  /* -------- Toast notifications -------- */
+  --toast-bg: #0F172A;
+  --toast-fg: #F8FAFC;
+  --toast-success-bg: #047857;
+  --toast-success-fg: #ECFDF5;
+  --toast-error-bg: #BE123C;
+  --toast-error-fg: #FFF1F2;
+
+  /* -------- Radius -------- */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+}

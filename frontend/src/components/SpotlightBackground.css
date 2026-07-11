@@ -1,0 +1,66 @@
+.spotlight-container {
+  position: relative;
+  width: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.spotlight-overlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.spotlight {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.35;
+  will-change: transform;
+}
+
+.spotlight-left {
+  top: 0;
+  left: 0;
+  width: 45vw;
+  height: 45vw;
+  max-width: 720px;
+  max-height: 720px;
+  background: radial-gradient(circle at center, var(--color-brand-cyan), transparent 70%);
+}
+
+.spotlight-mid {
+  top: 8%;
+  left: 38%;
+  width: 40vw;
+  height: 40vw;
+  max-width: 620px;
+  max-height: 620px;
+  background: radial-gradient(circle at center, var(--color-brand-indigo), transparent 70%);
+}
+
+.spotlight-right {
+  top: 0;
+  right: 0;
+  width: 42vw;
+  height: 42vw;
+  max-width: 680px;
+  max-height: 680px;
+  background: radial-gradient(circle at center, var(--color-navbar-bg), transparent 70%);
+}
+
+.spotlight-content {
+  position: relative;
+  z-index: 10;
+  flex: 1 1 auto;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .spotlight {
+    animation: none !important;
+  }
+}
