@@ -308,14 +308,18 @@ cd frontend && npm test
 
 ## Future Improvements
 
-- [ ] Email notifications on booking confirmation/cancellation
-- [ ] Refresh token implementation for enhanced security
-- [ ] Role-based access control (RBAC) — separate Admin and Customer dashboards
-- [ ] Pagination and search on bookings and services
-- [x] Docker + Docker Compose setup for one-command deployment
-- [x] Unit tests (Jest) for backend and frontend
-- [ ] Booking reminders via scheduled tasks (`@nestjs/schedule`)
-- [ ] Calendar view on the frontend for visual booking management
+- [ ] Email and SMS notifications for booking confirmations, reminders, and cancellations
+- [ ] Password reset and email verification flows
+- [ ] Payment gateway integration (Stripe, Razorpay) for paid bookings
+- [ ] Service availability calendar with time-slot management
+- [ ] Google Calendar and Outlook calendar sync
+- [ ] Booking reminder notifications (email/SMS) before appointments
+- [ ] Service categories, tags, and advanced search/filtering by availability
+- [ ] Ratings and reviews for completed bookings
+- [ ] Admin analytics dashboard for revenue, occupancy, and booking trends
+- [ ] Audit log for booking and service changes
+- [ ] File upload and gallery for service images
+- [ ] Progressive Web App (PWA) support for mobile users
 
 ---
 
