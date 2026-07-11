@@ -1,75 +1,82 @@
-# React + TypeScript + Vite
+# QuickReserve — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The React (Vite + TypeScript) client for the QuickReserve booking platform. It consumes the NestJS REST API and provides a premium dark-mode UI for browsing services and managing bookings.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+| Concern      | Technology                                  |
+|--------------|---------------------------------------------|
+| Framework    | React 19 + TypeScript                       |
+| Build tool   | Vite 8                                      |
+| Styling      | TailwindCSS v4 (`@tailwindcss/vite`)        |
+| Routing      | React Router v7                             |
+| Data fetching| TanStack React Query v5                     |
+| HTTP client  | Axios                                       |
+| Forms        | React Hook Form + Zod                       |
+| Icons        | lucide-react                                |
+| Notifications| react-hot-toast                             |
+| Tests        | Jest + Testing Library + jsdom              |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
 
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+frontend/src/
+├── api/           # HTTP layer
+│   ├── apiClient.ts   # Axios instance (base URL + JWT interceptor)
+│   ├── auth.ts        # register(), login()
+│   ├── services.ts    # getServices/createService/updateService/deleteService
+│   └── bookings.ts    # getBookings/createBooking/updateBookingStatus/cancelBooking
+├── components/    # Navbar, Footer, ServiceModal, BookingModal
+├── pages/         # Home, Login, Register, Services, Bookings
+├── routes/        # Route definitions / guards
+├── types/         # Shared TypeScript types
+├── tests/         # Unit tests
+├── __mocks__/     # Jest mocks
+├── App.tsx        # Router + layout shell
+├── main.tsx       # App entry point
+└── setupTests.ts  # Jest setup (incl. TextEncoder polyfill for jsdom)
 ```
+
+---
+
+## Environment Variables
+
+Create a `.env` (or `.env.local`) file in `frontend/`:
+
+```env
+VITE_API_URL="http://localhost:3000"
+```
+
+The `apiClient` reads `VITE_API_URL` so requests point at the backend. In Docker this is set to `http://localhost:3000`.
+
+---
+
+## Scripts
+
+```bash
+npm install        # Install dependencies
+npm run dev        # Start Vite dev server (http://localhost:5173)
+npm run build      # Type-check + production build
+npm run preview    # Preview the production build
+npm run lint       # ESLint
+npm test           # Run unit tests (Jest)
+```
+
+---
+
+## Pages & Routes
+
+| Path        | Page      | Description                                       |
+|-------------|-----------|---------------------------------------------------|
+| `/`         | Home      | Landing page with featured services and CTA      |
+| `/login`    | Login     | Authenticate and store the JWT                    |
+| `/register` | Register  | Create a new account                              |
+| `/services` | Services  | Browse, create, edit, delete services (auth)      |
+| `/bookings` | Bookings  | View/manage bookings; create a public booking     |
+
+The JWT is attached to `apiClient` requests automatically after login. See the
+[root README](./README.md) and [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) for backend details.
