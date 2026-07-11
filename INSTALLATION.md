@@ -46,6 +46,9 @@ Open `.env` and update:
 ```env
 DATABASE_URL="postgresql://postgres:yourpassword@localhost:5432/booking_platform"
 JWT_SECRET="your-very-secret-key"
+JWT_REFRESH_SECRET="your-very-secret-refresh-key"
+JWT_EXPIRES_IN=7d
+JWT_REFRESH_EXPIRES_IN=7d
 PORT=3000
 ```
 

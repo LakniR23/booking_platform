@@ -27,10 +27,11 @@ function renderHome() {
 describe('Home Page', () => {
   beforeEach(() => jest.clearAllMocks());
 
-  it('shows loading spinner initially', () => {
+  it('shows loading skeletons initially', () => {
     mockedGetServices.mockImplementation(() => new Promise(() => {}));
     renderHome();
-    expect(screen.getByText(/loading services/i)).toBeInTheDocument();
+    const skeletons = document.querySelectorAll('.animate-pulse');
+    expect(skeletons.length).toBeGreaterThan(0);
   });
 
   it('renders active services after load', async () => {

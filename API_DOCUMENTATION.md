@@ -67,6 +67,27 @@ Login and receive a JWT access token.
 
 ---
 
+### POST `/auth/refresh`
+Refresh an expired access token using a valid refresh token.
+
+- **Auth Required:** No
+- **Request Body:**
+```json
+{
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
+- **Response `200`:**
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
+- **Response `401`:** Invalid or expired refresh token.
+
+---
+
 ## 2. Service Endpoints
 
 ### POST `/services`

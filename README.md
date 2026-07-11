@@ -99,11 +99,14 @@ Create a `.env` file inside the `backend/` directory by copying `.env.example`:
 cp .env.example .env
 ```
 
-| Variable       | Description                        | Example                                              |
-|----------------|------------------------------------|------------------------------------------------------|
-| `DATABASE_URL` | PostgreSQL connection string        | `postgresql://user:password@localhost:5432/booking_platform` |
-| `JWT_SECRET`   | Secret key used to sign JWT tokens | `your-very-secret-key`                               |
-| `PORT`         | Port the server runs on (optional) | `3000`                                               |
+| Variable               | Description                                          | Example                                              |
+|------------------------|------------------------------------------------------|-------------------------------------------------------|
+| `DATABASE_URL`         | PostgreSQL connection string                          | `postgresql://user:password@localhost:5432/booking_platform` |
+| `JWT_SECRET`           | Secret key used to sign access JWT tokens            | `your-very-secret-key`                                |
+| `JWT_REFRESH_SECRET`   | Secret key used to sign refresh JWT tokens           | `your-very-secret-refresh-key`                        |
+| `JWT_EXPIRES_IN`       | Access token expiration duration                     | `7d`                                                  |
+| `JWT_REFRESH_EXPIRES_IN` | Refresh token expiration duration                  | `7d`                                                  |
+| `PORT`                 | Port the server runs on (optional)                   | `3000`                                                |
 
 ---
 
