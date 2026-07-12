@@ -51,24 +51,18 @@ booking-platform/
 │   │   │   ├── guards/
 │   │   │   ├── strategies/
 │   │   │   ├── auth.controller.ts
-│   │   │   ├── auth.middleware.ts
 │   │   │   ├── auth.module.ts
-│   │   │   ├── auth.service.ts
-│   │   │   └── auth.validation.ts
+│   │   │   └── auth.service.ts
 │   │   ├── bookings/
 │   │   │   ├── dto/
 │   │   │   ├── bookings.controller.ts
-│   │   │   ├── bookings.middleware.ts
 │   │   │   ├── bookings.module.ts
 │   │   │   ├── bookings.service.ts
-│   │   │   └── bookings.validation.ts
 │   │   ├── services/
 │   │   │   ├── dto/
 │   │   │   ├── services.controller.ts
-│   │   │   ├── services.middleware.ts
 │   │   │   ├── services.module.ts
 │   │   │   ├── services.service.ts
-│   │   │   └── services.validation.ts
 │   │   ├── prisma/
 │   │   │   ├── prisma.module.ts
 │   │   │   └── prisma.service.ts
